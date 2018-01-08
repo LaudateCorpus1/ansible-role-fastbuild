@@ -1,0 +1,22 @@
+---
+galaxy_info:
+  author: Nik Reiman
+  description: Installs FASTBuild
+  company: Ableton AG
+
+  license: BSD
+
+  min_ansible_version: 1.2
+
+  github_branch: master
+
+  platforms:
+    - name: Windows
+      versions:
+        - 8
+        - 8.1
+        - 10
+
+  galaxy_tags: []
+
+  dependencies: []

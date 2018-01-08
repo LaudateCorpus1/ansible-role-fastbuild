@@ -1,0 +1,17 @@
+---
+- name: Create temporary directory for downloads
+  win_tempfile:
+    state: directory
+    prefix: fastbuild
+  register: fastbuild_temp_dir
+
+- name: Download FASTBuild zipfile
+  win_get_url:
+    url: "{{ fastbuild_url_base }}/v{{ fastbuild_version }}/FASTBuild-Windows-{{ fastbuild_arch }}-v{{ fastbuild_version }}.zip"
+    dest: "{{ fastbuild_temp_dir.path }}/FASTBuild.zip"
+
+- name: Unzip FASTBuild archive
+  win_unzip:
+    src: "{{ fastbuild_temp_dir.path }}/FASTBuild.zip"
+    dest: "{{ fastbuild_path_win }}"
+    delete_archive: true

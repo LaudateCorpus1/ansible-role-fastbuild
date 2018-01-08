@@ -1,0 +1,12 @@
+---
+# Architecture to download for. Valid values include 'x64' and 'x86'. Note that
+# the 'x86' (32-bit) variant is only supported for Windows, and is known to be
+# slower than the 64-bit version. Unless you are running a 32-bit version of
+# Windows, it is not advised to change this value.
+fastbuild_arch: 'x64'
+
+# Version of FASTBuild to install.
+fastbuild_version: '0.94'
+
+# On Windows, this determines where the FASTBuild executables will be extracted.
+fastbuild_path_win: C:\Windows
