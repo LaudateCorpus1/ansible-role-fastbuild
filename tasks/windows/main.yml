@@ -13,5 +13,12 @@
 - name: Unzip FASTBuild archive
   win_unzip:
     src: "{{ fastbuild_temp_dir.path }}/FASTBuild.zip"
-    dest: "{{ fastbuild_path_win }}"
+    dest: "{{ fastbuild_temp_dir.path }}"
     delete_archive: true
+
+- name: Install FASTBuild executables
+  win_shell: "Move-Item -Force -Path '{{ fastbuild_temp_dir.path }}\\{{ item }}' \
+    '{{ fastbuild_path_win }}'"
+  with_items:
+    - FBuild.exe
+    - FBuildWorker.exe
