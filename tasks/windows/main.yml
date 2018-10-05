@@ -22,3 +22,13 @@
   with_items:
     - FBuild.exe
     - FBuildWorker.exe
+
+- name: Allow all users to run FASTBuild executables
+  win_acl:
+    path: "{{ fastbuild_path_win }}\\{{ item }}"
+    user: BUILTIN\Users
+    rights: ReadAndExecute
+    type: allow
+  with_items:
+    - FBuild.exe
+    - FBuildWorker.exe
