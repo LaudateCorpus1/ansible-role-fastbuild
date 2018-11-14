@@ -17,18 +17,23 @@
     delete_archive: true
 
 - name: Install FASTBuild executables
-  win_shell: "Move-Item -Force -Path '{{ fastbuild_temp_dir.path }}\\{{ item }}' \
+  win_shell: "Move-Item -Force \
+    -Path '{{ fastbuild_temp_dir.path }}\\{{ fbuild_exe_item }}' \
     '{{ fastbuild_path_win }}'"
   with_items:
     - FBuild.exe
     - FBuildWorker.exe
+  loop_control:
+    loop_var: fbuild_exe_item
 
 - name: Allow all users to run FASTBuild executables
   win_acl:
-    path: "{{ fastbuild_path_win }}\\{{ item }}"
+    path: "{{ fastbuild_path_win }}\\{{ fbuild_exe_item }}"
     user: BUILTIN\Users
     rights: ReadAndExecute
     type: allow
   with_items:
     - FBuild.exe
     - FBuildWorker.exe
+  loop_control:
+    loop_var: fbuild_exe_item
