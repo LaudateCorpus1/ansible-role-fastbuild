@@ -1,20 +1,38 @@
 ---
+- name: Initialize should_install_fbuild variable
+  set_fact:
+    should_install_fbuild: false
+
+- name: Get current version of FASTBuild
+  win_shell: "{{ fastbuild_path_win }}\\FBuild.exe -version | \
+    grep {{ fastbuild_version }}"
+  ignore_errors: true
+  register: fbuild_version
+
+- name: Determine whether to install FASTBuild
+  set_fact:
+    should_install_fbuild: true
+  when: fbuild_version is not defined or fbuild_version is failed
+
 - name: Create temporary directory for downloads
   win_tempfile:
     state: directory
     prefix: fastbuild
   register: fastbuild_temp_dir
+  when: should_install_fbuild
 
 - name: Download FASTBuild zipfile
   win_get_url:
     url: "{{ fastbuild_url_base }}/v{{ fastbuild_version }}/FASTBuild-Windows-{{ fastbuild_arch }}-v{{ fastbuild_version }}.zip"
     dest: "{{ fastbuild_temp_dir.path }}/FASTBuild.zip"
+  when: should_install_fbuild
 
 - name: Unzip FASTBuild archive
   win_unzip:
     src: "{{ fastbuild_temp_dir.path }}/FASTBuild.zip"
     dest: "{{ fastbuild_temp_dir.path }}"
     delete_archive: true
+  when: should_install_fbuild
 
 - name: Install FASTBuild executables
   win_shell: "Move-Item -Force \
@@ -25,6 +43,7 @@
     - FBuildWorker.exe
   loop_control:
     loop_var: fbuild_exe_item
+  when: should_install_fbuild
 
 - name: Allow all users to run FASTBuild executables
   win_acl:
@@ -37,3 +56,4 @@
     - FBuildWorker.exe
   loop_control:
     loop_var: fbuild_exe_item
+  when: should_install_fbuild
