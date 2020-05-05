@@ -6,7 +6,7 @@
 fastbuild_arch: "x64"
 
 # Version of FASTBuild to install.
-fastbuild_version: "0.99"
+fastbuild_version: "1.00"
 
 # On Windows, this determines where the FASTBuild executables will be extracted.
 fastbuild_path_win: C:\Windows
