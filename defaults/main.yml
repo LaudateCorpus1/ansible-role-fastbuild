@@ -11,6 +11,13 @@ fastbuild_cache_dir: C:\fbuild
 # User who will own the FASTBuild configuration directory.
 fastbuild_cache_owner: "jenkins"
 
+# If true, then add a scheduled task to regularly trim the cache.
+fastbuild_cache_schedule_trim: true
+
+# How large the FASTBuild cache should be trimmed to (requires
+# fastbuild_cache_schedule_trim to be true).
+fastbuild_cache_trim_size_mb: 1024
+
 # Version of FASTBuild to install.
 fastbuild_version: "1.00"
 
