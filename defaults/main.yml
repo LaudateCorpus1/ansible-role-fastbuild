@@ -1,9 +1,22 @@
 ---
-# Architecture to download for. Valid values include 'x64' and 'x86'. Note that
-# the 'x86' (32-bit) variant is only supported for Windows, and is known to be
-# slower than the 64-bit version. Unless you are running a 32-bit version of
-# Windows, it is not advised to change this value.
+# Architecture to download for. Valid values include 'x64' and 'x86'. Note that the 'x86'
+# (32-bit) variant is only supported for Windows, and is known to be slower than the
+# 64-bit version. Unless you are running a 32-bit version of Windows, it is not advised to
+# change this value.
 fastbuild_arch: "x64"
+
+# Where FASTBuild should store its cache.
+fastbuild_cache_dir: C:\fbuild
+
+# User who will own the FASTBuild configuration directory.
+fastbuild_cache_owner: "jenkins"
+
+# If true, then add a scheduled task to regularly trim the cache.
+fastbuild_cache_schedule_trim: true
+
+# How large the FASTBuild cache should be trimmed to (requires
+# fastbuild_cache_schedule_trim to be true).
+fastbuild_cache_trim_size_mb: 1024
 
 # Version of FASTBuild to install.
 fastbuild_version: "1.00"

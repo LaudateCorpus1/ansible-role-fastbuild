@@ -1,0 +1,27 @@
+---
+- name: Ensure FASTBuild cache directory exists
+  become: true
+  become_user: "{{ fastbuild_cache_owner }}"
+  win_file:
+    path: "{{ fastbuild_cache_dir }}"
+    state: directory
+
+- name: Set FASTBuild cache path environment variable
+  win_environment:
+    name: "FASTBUILD_CACHE_PATH"
+    value: "{{ fastbuild_cache_dir }}"
+    level: machine
+
+- name: Add scheduled task to trim FASTBuild cache
+  win_scheduled_task:
+    name: "Trim FASTBuild cache"
+    username: "{{ fastbuild_cache_owner }}"
+    actions:
+      - path: "{{ fastbuild_path_win }}\\FBuild.exe"
+        arguments: "-cachetrim {{ fastbuild_cache_trim_size_mb }}"
+    triggers:
+      - type: daily
+        # This attribute is required by Ansible, but not really necessary for daily tasks.
+        # Hence, we choose a date far in the past.
+        start_boundary: "2000-01-01T00:00:00"
+  when: fastbuild_cache_schedule_trim
