@@ -5,6 +5,12 @@
 # change this value.
 fastbuild_arch: "x64"
 
+# Where FASTBuild should store its cache.
+fastbuild_cache_dir: C:\fbuild
+
+# User who will own the FASTBuild configuration directory.
+fastbuild_cache_owner: "jenkins"
+
 # Version of FASTBuild to install.
 fastbuild_version: "1.00"
 
