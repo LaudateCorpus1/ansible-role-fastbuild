@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   role_name: fastbuild
-  author: Nik Reiman
+  author: ableton
   description: Installs FASTBuild
   company: Ableton AG
 
