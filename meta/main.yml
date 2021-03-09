@@ -1,23 +1,21 @@
 ---
 galaxy_info:
-  role_name: fastbuild
-  author: Nik Reiman
-  description: Installs FASTBuild
+  author: ableton
   company: Ableton AG
-
-  license: BSD
-
-  min_ansible_version: 1.2
-
+  description: Installs FASTBuild
   github_branch: master
+  license: MIT
+  min_ansible_version: 2.10
+  role_name: fastbuild
+
+  galaxy_tags:
+    - development
+    - fastbuild
 
   platforms:
     - name: Windows
       versions:
-        - 8
         - 8.1
         - 10
 
-  galaxy_tags: []
-
-  dependencies: []
+dependencies: []
