@@ -1,15 +1,16 @@
 ---
 galaxy_info:
-  role_name: fastbuild
   author: ableton
-  description: Installs FASTBuild
   company: Ableton AG
-
-  license: BSD
-
-  min_ansible_version: 1.2
-
+  description: Installs FASTBuild
   github_branch: master
+  license: BSD
+  min_ansible_version: 1.2
+  role_name: fastbuild
+
+  galaxy_tags:
+    - development
+    - fastbuild
 
   platforms:
     - name: Windows
@@ -17,9 +18,5 @@ galaxy_info:
         - 8
         - 8.1
         - 10
-
-  galaxy_tags:
-    - development
-    - fastbuild
 
 dependencies: []
