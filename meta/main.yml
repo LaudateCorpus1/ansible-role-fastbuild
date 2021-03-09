@@ -18,6 +18,8 @@ galaxy_info:
         - 8.1
         - 10
 
-  galaxy_tags: []
+  galaxy_tags:
+    - development
+    - fastbuild
 
 dependencies: []
