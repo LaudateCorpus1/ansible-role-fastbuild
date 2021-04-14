@@ -1,4 +1,4 @@
 ---
-- include_tasks: "install.yml"
+- import_tasks: "install.yml"
 
-- include_tasks: "configure.yml"
+- import_tasks: "configure.yml"
