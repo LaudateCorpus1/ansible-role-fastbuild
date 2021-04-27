@@ -9,7 +9,7 @@ Supported Host OS Types
 -----------------------
 
 Currently this role only supports Windows hosts, even though FASTBuild has alpha
-support for Linux and Mac OS X.
+support for Linux and macOS.
 
 
 Role Variables
