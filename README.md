@@ -6,7 +6,7 @@ This role installs [FASTBuild][fastbuild] on a Windows-based host.
 Requirements
 ------------
 
-Ansible >= 2.9, and a [Windows-based host][ansible-win].
+Ansible >= 2.10, and a [Windows-based host][ansible-win].
 
 Although FASTBuild has support for Linux and macOS hosts, this role doesn't support those
 platforms yet.
