@@ -14,7 +14,6 @@ galaxy_info:
   platforms:
     - name: Windows
       versions:
-        - 8.1
-        - 10
+        - all
 
 dependencies: []
