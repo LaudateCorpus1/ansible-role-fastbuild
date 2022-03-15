@@ -6,9 +6,13 @@
 #
 ansible==5.3.0
     # via -r requirements-dev.in
+ansible-compat==2.0.0
+    # via ansible-lint
 ansible-core==2.12.2
-    # via ansible
-ansible-lint==5.3.2
+    # via
+    #   ansible
+    #   ansible-lint
+ansible-lint==6.0.0
     # via -r requirements-dev.in
 bracex==2.1.1
     # via wcmatch
@@ -30,6 +34,8 @@ packaging==21.0
     # via
     #   ansible-core
     #   ansible-lint
+pathspec==0.9.0
+    # via yamllint
 pycparser==2.20
     # via cffi
 pygments==2.10.0
@@ -38,17 +44,21 @@ pyparsing==2.4.7
     # via packaging
 pyyaml==5.4.1
     # via
+    #   ansible-compat
     #   ansible-core
     #   ansible-lint
+    #   yamllint
 resolvelib==0.5.4
     # via ansible-core
 rich==10.7.0
     # via
     #   ansible-lint
     #   enrich
-ruamel.yaml==0.17.14
+ruamel-yaml==0.17.14
     # via ansible-lint
-tenacity==8.0.1
-    # via ansible-lint
+subprocess-tee==0.3.5
+    # via ansible-compat
 wcmatch==8.2
+    # via ansible-lint
+yamllint==1.26.3
     # via ansible-lint
