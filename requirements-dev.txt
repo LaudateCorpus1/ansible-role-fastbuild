@@ -18,7 +18,7 @@ colorama==0.4.4
     # via rich
 commonmark==0.9.1
     # via rich
-cryptography==3.4.8
+cryptography==39.0.1
     # via ansible-core
 enrich==1.2.6
     # via ansible-lint
@@ -46,7 +46,7 @@ rich==10.7.0
     # via
     #   ansible-lint
     #   enrich
-ruamel.yaml==0.17.14
+ruamel-yaml==0.17.14
     # via ansible-lint
 tenacity==8.0.1
     # via ansible-lint
